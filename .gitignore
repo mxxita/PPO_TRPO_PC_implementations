@@ -1,14 +1,31 @@
+# Python
 __pycache__/
 *.py[cod]
 *.egg-info/
+dist/
+build/
+*.egg
+
+# Virtual environments
 .venv/
 venv/
 .env
+
+# IDE / OS
 .DS_Store
 .idea/
 .vscode/
+*.swp
+*~
+
+# Training artifacts (large / ephemeral)
 runs/
+results/
+wandb/
 *.pt
 *.pkl
+
+# Plots (regenerable)
 *.png
+*.pdf
 !docs/*.png
