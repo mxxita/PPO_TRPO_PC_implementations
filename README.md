@@ -1,4 +1,4 @@
-# pcrl — PPO & TRPO, built to extend
+# pcrl — PPO & TRPO Paper Implementations
 
 Clean PyTorch implementations of **PPO** ([Schulman 2017](https://arxiv.org/abs/1707.06347))
 and **TRPO** ([Schulman 2015](https://arxiv.org/abs/1502.05477), single-path)
@@ -7,6 +7,8 @@ on **Atari** and **MuJoCo**. Auto-detects MPS / CUDA / CPU.
 Factored so the training loop, networks, and buffer are shared — and so
 the optimizer is a plug (swap Adam backprop for predictive coding without
 touching the algorithms).
+
+Should be extended to include pc too - TODO
 
 ---
 
