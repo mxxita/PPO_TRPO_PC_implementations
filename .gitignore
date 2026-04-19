@@ -32,4 +32,4 @@ wandb/
 
 
 # Embarassing stuff
-.txt
+*.txt
