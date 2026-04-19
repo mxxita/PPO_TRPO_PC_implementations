@@ -1,0 +1,18 @@
+# PPO on Atari (Schulman et al., 2017, Table 5 / ppo2 atari defaults).
+defaults:
+  - ../base/algo/ppo.yaml
+  - ../base/env/atari.yaml
+  - ../base/learner/backprop.yaml
+
+# Optimizer
+lr: 2.5e-4
+
+# PPO-specific (Atari values)
+clip_coef: 0.1         # epsilon, also linearly annealed with alpha
+anneal_clip: true
+update_epochs: 4       # noptepochs=4
+minibatch_size: 256    # 32 * 8 envs
+ent_coef: 0.01         # c2
+
+# Network: PPO shares CNN features between policy and value.
+share_backbone: true

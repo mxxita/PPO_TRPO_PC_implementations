@@ -1,0 +1,21 @@
+# TRPO defaults (Schulman et al., 2015) — single-path sampling.
+algo: trpo
+
+# Trust region
+delta: 0.01
+cg_iters: 10
+cg_damping: 0.1
+line_search_steps: 10
+norm_adv: true
+
+# Value function (trained separately via Adam regression)
+vf_lr: 1.0e-3
+vf_iters: 5
+max_grad_norm: 0.5
+
+# GAE
+gamma: 0.99
+gae_lambda: 0.95
+
+# TRPO uses separate policy / value networks (no shared CNN).
+share_backbone: false

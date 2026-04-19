@@ -1,0 +1,8 @@
+# TRPO on Atari (Schulman et al., 2015).
+# Rollout matched to PPO Atari for a fair comparison.
+defaults:
+  - ../base/algo/trpo.yaml
+  - ../base/env/atari.yaml
+  - ../base/learner/backprop.yaml
+
+vf_minibatch_size: 256

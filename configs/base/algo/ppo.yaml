@@ -1,0 +1,18 @@
+# PPO defaults (Schulman et al., 2017).
+# Env-specific knobs (lr, clip_coef, minibatch_size, ent_coef, anneal_clip,
+# share_backbone) are set by the env base or the experiment composition.
+algo: ppo
+
+# Optimizer
+anneal_lr: true
+max_grad_norm: 0.5
+
+# PPO-specific
+update_epochs: 10
+vf_coef: 0.5
+norm_adv: true
+clip_vloss: true
+
+# GAE
+gamma: 0.99
+gae_lambda: 0.95

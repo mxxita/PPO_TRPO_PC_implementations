@@ -1,0 +1,7 @@
+# Default learner: Adam backprop.
+# Swap this for a predictive-coding block (or any other Learner subclass)
+# by pointing the experiment's `defaults:` entry at a different file and
+# extending scripts/train.py::build_learner to dispatch on `learner.type`.
+learner:
+  type: backprop
+  eps: 1.0e-5

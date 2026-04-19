@@ -1,0 +1,7 @@
+# TRPO on MuJoCo locomotion (Schulman et al., 2015, §8.1).
+defaults:
+  - ../base/algo/trpo.yaml
+  - ../base/env/mujoco.yaml
+  - ../base/learner/backprop.yaml
+
+vf_minibatch_size: 64

@@ -1,0 +1,8 @@
+# MuJoCo defaults (continuous control, Gymnasium v4 envs).
+env_type: mujoco
+env_id: HalfCheetah-v4
+total_timesteps: 1_000_000
+
+# Rollout: single actor, long horizon -> batch 2048 (paper Table 3).
+num_envs: 1
+num_steps: 2048

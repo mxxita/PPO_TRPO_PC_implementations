@@ -1,0 +1,8 @@
+# Atari defaults (NoFrameskip-v4 variants with the standard Nature wrappers).
+env_type: atari
+env_id: BreakoutNoFrameskip-v4
+total_timesteps: 10_000_000
+
+# Rollout: 8 actors x 128 steps -> batch 1024 (ppo2 atari default).
+num_envs: 8
+num_steps: 128

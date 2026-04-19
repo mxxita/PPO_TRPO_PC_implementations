@@ -1,0 +1,18 @@
+# PPO on MuJoCo (Schulman et al., 2017, Table 3).
+defaults:
+  - ../base/algo/ppo.yaml
+  - ../base/env/mujoco.yaml
+  - ../base/learner/backprop.yaml
+
+# Optimizer
+lr: 3.0e-4
+
+# PPO-specific (MuJoCo values)
+clip_coef: 0.2
+anneal_clip: false
+update_epochs: 10
+minibatch_size: 64
+ent_coef: 0.0          # paper: no entropy bonus on MuJoCo
+
+# Network: paper §6.1 uses separate policy / value nets.
+share_backbone: false
