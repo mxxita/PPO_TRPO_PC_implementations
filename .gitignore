@@ -29,3 +29,7 @@ wandb/
 *.png
 *.pdf
 !docs/*.png
+
+
+# Embarassing stuff
+.txt

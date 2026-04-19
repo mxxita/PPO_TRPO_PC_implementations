@@ -1,0 +1,45 @@
+GIT WORKFLOW CHEAT SHEET
+========================
+
+1. INITIAL SETUP (Once per project)
+-----------------------------------
+git init
+   -> Creates a new local repository.
+
+git status
+   -> Shows which files are changed/untracked. Always run this first!
+
+2. SAVING CHANGES (The "Daily Loop")
+------------------------------------
+git add .
+   -> Stages ALL changed files (prepares them for the save).
+
+git commit -m "Brief description of changes"
+   -> Creates a permanent snapshot (the "Save Point").
+
+3. CONNECTING TO GITHUB (Once per repository)
+----------------------------------------------
+git branch -M main
+   -> Ensures your main branch is named 'main'.
+
+git remote add origin https://github.com/YOUR_USERNAME/YOUR_REPO.git
+   -> Links your local folder to your online GitHub repo.
+
+git push -u origin main
+   -> Uploads your first commit. The '-u' links them for the future.
+
+4. UPDATING GITHUB (After the first push)
+-----------------------------------------
+git push
+   -> Uploads any new commits you've made.
+
+5. HANDY "HELP" COMMANDS
+------------------------
+git log --oneline
+   -> Shows a clean list of your previous save points (commits).
+
+git diff
+   -> Shows exactly what code you changed since the last save.
+
+git reset <file-name>
+   -> "Un-stages" a file if you accidentally added it with 'git add'.
