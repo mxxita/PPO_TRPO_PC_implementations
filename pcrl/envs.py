@@ -81,7 +81,6 @@ class ClipReward(gym.RewardWrapper):
 def _make_atari_single(env_id: str, seed: int, idx: int, render_mode: str | None):
     def thunk():
         env = gym.make(env_id, frameskip=1, render_mode=render_mode)
-        env = gym.wrappers.RecordEpisodeStatistics(env)
         env = gym.wrappers.AtariPreprocessing(
             env,
             noop_max=30,
@@ -94,6 +93,8 @@ def _make_atari_single(env_id: str, seed: int, idx: int, render_mode: str | None
         env = FireResetEnv(env)
         env = FrameStack(env, 4)
         env = ClipRewardEnv(env)
+        env = gym.wrappers.RecordEpisodeStatistics(env)
+
         env.action_space.seed(seed + idx)
         return env
     return thunk

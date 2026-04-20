@@ -1,4 +1,4 @@
-# pcrl — PPO & TRPO Paper Implementations
+# pcrl — PPO & TRPO Implementation on Atari
 
 Clean PyTorch implementations of **PPO** ([Schulman 2017](https://arxiv.org/abs/1707.06347))
 and **TRPO** ([Schulman 2015](https://arxiv.org/abs/1502.05477), single-path)
@@ -15,7 +15,7 @@ Should be extended to include pc too - TODO
 ## Quickstart
 
 ```bash
-source /Users/maritaberger/venvs/pc/bin/activate
+source ***/venvs/pc/bin/activate
 pip install -e .           # + [dev] for pytest / ruff
 
 # smoke test (~1 min)

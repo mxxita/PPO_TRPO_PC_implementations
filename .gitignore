@@ -33,3 +33,4 @@ wandb/
 
 # Embarassing stuff
 *.txt
+.claude/worktrees/

@@ -72,7 +72,17 @@ def write_run_metadata(run_dir: Path, cfg: Dict, extra: Optional[Dict] = None) -
     with open(run_dir / "config.yaml", "w") as f:
         yaml.dump(cfg, f, sort_keys=False)
 
-
+# better distinguish the naming of the runs i.e. {algo}_{env}_s{seed}
 def default_run_name(algo: str, env_id: str, seed: int) -> str:
-    stamp = int(time.time())
-    return f"{algo}_{env_id.replace('/', '-')}_s{seed}_{stamp}"
+    base = f"{algo}_{env_id.replace('/', '-')}_s{seed}"
+    runs_dir = Path(__file__).resolve().parent.parent / "runs"
+    n = 1
+    if runs_dir.exists():
+        existing = [p.name for p in runs_dir.iterdir() if p.name.startswith(base + "_r")]
+        nums = []
+        for name in existing:
+            suffix = name[len(base) + 2:]
+            if suffix.isdigit():
+                nums.append(int(suffix))
+        n = max(nums, default=0) + 1
+    return f"{base}_r{n:03d}"
