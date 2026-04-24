@@ -15,7 +15,7 @@ Should be extended to include pc too - TODO
 ## Quickstart
 
 ```bash
-source ***/venvs/pc/bin/activate
+source ~/venvs/pc/bin/activate
 pip install -e .           # + [dev] for pytest / ruff
 
 # smoke test (~1 min)

@@ -12,7 +12,7 @@ import numpy as np
 try:
     import ale_py  # noqa: F401
     if hasattr(gym, "register_envs"):
-        gym.register_envs(ale_py)
+        gym.register_envs(ale_py) 
 except ImportError:
     pass
 

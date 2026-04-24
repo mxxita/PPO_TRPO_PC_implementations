@@ -29,7 +29,8 @@ from .base import Agent
 
 
 # ---------- helpers on flat parameter vectors --------------------------------
-
+# this section helps to compute the flat gradients... in TRPO the weights are represented in one huge vector
+# the next three functions are used to compute the flat gradients, get and set the flat parameters and compute the fisher vector produc
 def get_flat_params(params: List[torch.Tensor]) -> torch.Tensor:
     return torch.cat([p.data.view(-1) for p in params])
 
@@ -57,6 +58,8 @@ def flat_grad(
     return torch.cat(out)
 
 
+# Textbook CG implementaion: (Ax = b -> x = A^{-1}b) without materialising A, only using Av(v) = A @ v products.)
+# explanation for dummies: Conjugate Gradient allows TRPO to find the most efficient update direction by solving a complex system of equations using only matrix-vector products, avoiding the impossible task of calculating and storing a massive matrix inverse.
 def conjugate_gradients(
     Av: Callable[[torch.Tensor], torch.Tensor],
     b: torch.Tensor,
@@ -105,6 +108,7 @@ class TRPO(Agent):
         return {**p_stats, **v_stats}
 
     # ---- value regression ---------------------------------------------------
+    # MSE regression on the retuns. The only part of TRPO that  uses the learner, because it is the only part touching hte loss calucaltion... This is where you would swap for PC
     def _update_value(self, data) -> Dict:
         cfg = self.cfg
         obs = data["obs"]
@@ -141,6 +145,7 @@ class TRPO(Agent):
 
         params = self.network.policy_parameters()
 
+        # L(theta) in the paper. i..e the ratio-weighted advantage. 
         def neg_surrogate() -> torch.Tensor:
             new_dist = self.network.get_dist(obs)
             new_logprob = new_dist.log_prob(actions)
